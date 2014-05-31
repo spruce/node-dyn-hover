@@ -14,9 +14,9 @@ app.use(function(req, res, next){
   next();
 });
 
-app.all('/', function(req, res){
-  if(req.body.user == config.site.user && req.body.pw == config.site.pw){
-    update_dns(req.body.domain, req.body.ip, function(err,value){
+app.get('/', function(req, res){
+  if(req.query.user == config.site.user && req.query.pw == config.site.pw){
+    update_dns(req.query.domain, req.query.ip, function(err,value){
       if(err){
         res.send(500);
       }
