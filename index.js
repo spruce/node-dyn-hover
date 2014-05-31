@@ -43,7 +43,7 @@ function update_dns(url, ip, cb){
     if(err){if(cb){return cb(err);}else{return;}}
     getDnsIdFromDomainName(url,function(err,value){
       if(err){if(cb){return cb(err);}else{return;}}
-      updateDnsId(value, ip, cb(err, value))
+      updateDnsId(value, ip, cb);
     });
   });
 }
