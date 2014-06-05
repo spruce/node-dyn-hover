@@ -3,9 +3,9 @@
   "version": "0.0.1",
   "description":"Small script to run a server which will update your Hover DNS entries",
   "repository" :
-  { "type" : "git"
-  , "url" : "http://github.com/spruce/node-dyn-hover.git"
-  }
+  { "type" : "git",
+    "url" : "http://github.com/spruce/node-dyn-hover.git"
+  },
   "scripts": {
     "start": "node index"
   },
