@@ -1,5 +1,3 @@
-// inspired by https://gist.github.com/dankrause/5585907
-
 var config = require('./config.js');
 var request = require('request');
 var express = require('express');
@@ -7,7 +5,7 @@ var express = require('express');
 
 var app = express();
 app.use(express.urlencoded());
-app.use(express.bodyParser());
+app.use(express.json());
 
 app.use(function(req, res, next){
   console.log('%s %s', req.method, req.url);
@@ -22,7 +20,7 @@ app.get('/', function(req, res){
         res.send(500);
       }
       else if(!value){
-        console.log("irgendetwas ist schief gegeangen.");
+        console.log("Something went wrong.");
         res.send(503);
       }
       else{
@@ -38,7 +36,7 @@ app.get('/', function(req, res){
   }
 });
 
-app.listen(60006);
+app.listen(config.site.port);
 
 
 
@@ -141,6 +139,3 @@ function login(username, password, callback){
     }
   });
 }// end login
-
-// serve 60006
-// on request with passwd and pw
