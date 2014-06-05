@@ -28,5 +28,5 @@ node_modules
 .lock-wscript
 
 
-
+# so that one does not push its own config
 config.js
