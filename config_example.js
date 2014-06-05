@@ -6,6 +6,7 @@ module.exports = {
 	},
 	"site":{
   	"user":"siteUsername",
-  	"pw":"sitePassword"
+  	"pw":"sitePassword",
+  	"port":1234
 	}
 }
