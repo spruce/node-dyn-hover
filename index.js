@@ -18,18 +18,22 @@ app.get('/', function(req, res){
   if(req.query.user == config.site.user && req.query.pw == config.site.pw){
     update_dns(req.query.domain, req.query.ip, function(err,value){
       if(err){
+        console.log("Error:", err);
         res.send(500);
       }
       else if(!value){
+        console.log("irgendetwas ist schief gegeangen.");
         res.send(503);
       }
       else{
         // everything worked just fine
+        console.log("updated DNS-entry");
         res.send(200);
       }
     })
   }
   else{
+    console.log("wrong username/pw");
     res.send(401);
   }
 });
