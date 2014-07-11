@@ -13,7 +13,7 @@ app.use(function(req, res, next){
 });
 
 app.get('/', function(req, res){
-  if(req.query.user == config.site.user && req.query.pw == config.site.pw){
+  if(isAuthUserForDomain(req.query.user, req.query.pw, req.query.domain)){
     update_dns(req.query.domain, req.query.ip, function(err,value){
       if(err){
         console.log("Error:", err);
@@ -38,6 +38,19 @@ app.get('/', function(req, res){
 
 app.listen(config.site.port);
 
+function isAuthUserForDomain(user, pw, domain){
+  var users = config.site.users;
+  for(var i = 0, l = users.length; i < l; i++){
+    if(user == users[i].user && pw == users[i].pw){
+      for(var j = 0, m = users[i].domains; j < m; j++){
+        if(users[i].domains[j] == domain){
+          return true;
+        }
+      }
+    }
+  } 
+  return false; 
+}
 
 
 function update_dns(url, ip, cb){

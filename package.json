@@ -1,6 +1,6 @@
 {
   "name": "dyn-update",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description":"Small script to run a server which will update your Hover DNS entries",
   "repository" :
   { "type" : "git",
